@@ -89,7 +89,7 @@
 }
 
 /* ======================
-   HERO - Colin Moy Layout
+   HERO PERFECT GRID ALIGNMENT
 =========================*/
 
 .hero {
@@ -104,77 +104,89 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  gap: 4vh;
+  width: 90vw;
+  max-width: 1600px;   /* ← sets perfect left-right alignment zone */
 }
 
-/* ONE ROW = letter | pill | letters */
+/* -----------------------------
+   ROWS - SAME WIDTH FOR BOTH
+------------------------------*/
 .hero-row {
+  width: 100%;                      /* ← ensures rows have same width */
   display: flex;
   align-items: center;
-  gap: 4vw;
+  justify-content: space-between;   /* ← aligns left and right perfectly */
 }
 
-/* BIG NAME LETTERS */
+/* left name letter (B, S) */
 .hero-letter {
   font-size: clamp(6rem, 10vw, 12rem);
   font-weight: 900;
   color: black;
-  line-height: 0.8;
+  flex-shrink: 0;
 }
 
-/* Pill */
+/* right group (AER / LIMAN) */
+.hero-end {
+  display: flex;
+  gap: clamp(0.8rem, 1.5vw, 3rem);
+  flex-shrink: 0;
+}
+
+/* -----------------------------
+   CENTER PILL (same width both rows)
+------------------------------*/
 .hero-pill {
-  width: clamp(450px, 45vw, 800px);
-  height: clamp(150px, 13vw, 220px);
+  width: clamp(500px, 40vw, 800px);  /* ← EXACT same pill width */
+  height: clamp(150px, 12vw, 200px);
   background: white;
   border-radius: 200px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
-/* Sliding black circle (no rotation) */
+/* black sliding capsule */
 .pill-black {
   position: absolute;
-  width: 55%;
+  width: 60%;
   height: 100%;
   background: black;
   border-radius: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: slide 3s ease-in-out infinite;
+  top: 0;
+  animation: slideLR 3s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .pill-letter {
-  font-size: clamp(4rem, 8vw, 6rem);
+  font-size: clamp(4rem, 7vw, 6rem);
   font-weight: 800;
   color: #009fa5;
 }
 
-/* tag row */
+/* -----------------------------
+   TAGLINE
+------------------------------*/
 .hero-tag {
   background: black;
   color: white;
   padding: 12px 40px;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  border-radius: 99px;
+  border-radius: 100px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
-/* Right side group */
-.hero-end {
-  display: flex;
-  gap: 1vw;
-}
-
-/* animation */
-@keyframes slide {
-  0%    { left: 100%; transform: translateX(-100%); }
-  50%   { left: 50%;  transform: translateX(-50%); }
-  100%  { left: 0%;   transform: translateX(0%); }
+/* -----------------------------
+   LEFT ↔ RIGHT MOVEMENT
+------------------------------*/
+@keyframes slideLR {
+  0%   { left: -20%; }
+  50%  { left: 40%; }
+  100% { left: -20%; }
 }
 
 /* ===========================
