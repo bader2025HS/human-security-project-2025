@@ -92,102 +92,89 @@
    HERO PERFECT GRID ALIGNMENT
 =========================*/
 
-.hero {
+/* LANDING SECTION */
+#landing {
   background: #009fa5;
+  width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.hero-wrap {
+.landing-container {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 4vh;
-  width: 90vw;
-  max-width: 1600px;   /* ← sets perfect left-right alignment zone */
+  gap: 40px;
 }
 
-/* -----------------------------
-   ROWS - SAME WIDTH FOR BOTH
-------------------------------*/
-.hero-row {
-  width: 100%;                      /* ← ensures rows have same width */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;   /* ← aligns left and right perfectly */
-}
-
-/* left name letter (B, S) */
-.hero-letter {
-  font-size: clamp(6rem, 10vw, 12rem);
-  font-weight: 900;
-  color: black;
-  flex-shrink: 0;
-}
-
-/* right group (AER / LIMAN) */
-.hero-end {
-  display: flex;
-  gap: clamp(0.8rem, 1.5vw, 3rem);
-  flex-shrink: 0;
-}
-
-/* -----------------------------
-   CENTER PILL (same width both rows)
-------------------------------*/
-.hero-pill {
-  width: clamp(500px, 40vw, 800px);  /* ← EXACT same pill width */
-  height: clamp(150px, 12vw, 200px);
-  background: white;
-  border-radius: 200px;
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-/* black sliding capsule */
-.pill-black {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  background: black;
-  border-radius: 200px;
-  top: 0;
-  animation: slideLR 3s ease-in-out infinite;
+/* Each row of text */
+.landing-row {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 40px;
 }
 
-.pill-letter {
-  font-size: clamp(4rem, 7vw, 6rem);
-  font-weight: 800;
-  color: #009fa5;
+/* Big letters */
+.landing-letter {
+  font-size: 160px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 8px;
 }
 
-/* -----------------------------
-   TAGLINE
-------------------------------*/
-.hero-tag {
-  background: black;
-  color: white;
-  padding: 12px 40px;
-  border-radius: 100px;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
+/* Capsule */
+.capsule {
+  width: 520px;
+  height: 220px;
+  background: #fff;
+  border-radius: 150px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-/* -----------------------------
-   LEFT ↔ RIGHT MOVEMENT
-------------------------------*/
-@keyframes slideLR {
-  0%   { left: -20%; }
+/* Moving black part */
+.capsule-inner {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 150px;
+  position: absolute;
+  left: -40%;
+  animation: slide 4s ease-in-out infinite;
+}
+
+/* Animated letters inside capsule */
+.capsule-letter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00a8ad;
+  font-size: 140px;
+  font-weight: 700;
+}
+
+/* Sliding animation (left → right → left) */
+@keyframes slide {
+  0%   { left: -40%; }
   50%  { left: 40%; }
-  100% { left: -20%; }
+  100% { left: -40%; }
 }
+
+/* Tagline */
+.tagline {
+  background: #000;
+  color: white;
+  font-size: 26px;
+  letter-spacing: 0.25em;
+  padding: 18px 80px;
+  border-radius: 50px;
+}
+
 
 /* ===========================
    ABOUT – VERTICAL STATS COLUMN
@@ -2590,52 +2577,49 @@ margin-bottom: 6px;
 <body>
 
   <!-- LANDING HERO -->
-<section class="hero">
-  <div class="hero-wrap">
+<section id="landing">
+  <div class="landing-container">
 
     <!-- ROW 1 -->
-    <div class="hero-row">
-      <span class="hero-letter">B</span>
+    <div class="landing-row">
+      <span class="landing-letter">B</span>
 
-      <div class="hero-pill">
-        <div class="pill-black">
-          <span class="pill-letter">D</span>
+      <div class="capsule">
+        <div class="capsule-inner">
+          <span class="capsule-letter">D</span>
         </div>
       </div>
 
-      <div class="hero-end">
-        <span class="hero-letter">A</span>
-        <span class="hero-letter">E</span>
-        <span class="hero-letter">R</span>
-      </div>
+      <span class="landing-letter">A</span>
+      <span class="landing-letter">E</span>
+      <span class="landing-letter">R</span>
     </div>
 
-    <!-- ROW 2 (TAGLINE) -->
-    <div class="hero-tag">
+    <!-- TAGLINE -->
+    <div class="tagline">
       HUMAN SECURITY • MIGRATION • DATA • WATER & CLIMATE
     </div>
 
-    <!-- ROW 3 -->
-    <div class="hero-row">
-      <span class="hero-letter">S</span>
+    <!-- ROW 2 -->
+    <div class="landing-row">
+      <span class="landing-letter">S</span>
 
-      <div class="hero-pill">
-        <div class="pill-black">
-          <span class="pill-letter">U</span>
+      <div class="capsule">
+        <div class="capsule-inner">
+          <span class="capsule-letter">U</span>
         </div>
       </div>
 
-      <div class="hero-end">
-        <span class="hero-letter">L</span>
-        <span class="hero-letter">I</span>
-        <span class="hero-letter">M</span>
-        <span class="hero-letter">A</span>
-        <span class="hero-letter">N</span>
-      </div>
+      <span class="landing-letter">L</span>
+      <span class="landing-letter">I</span>
+      <span class="landing-letter">M</span>
+      <span class="landing-letter">A</span>
+      <span class="landing-letter">N</span>
     </div>
 
   </div>
 </section>
+
 
   <div id="scrollProgress"></div>
 
