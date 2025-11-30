@@ -89,10 +89,10 @@
 }
 
 /* ============================
-   HERO LANDING (Colin-Moy style)
+   HERO LANDING (FINAL VERSION)
 ===============================*/
 .hero-landing {
-  background: #009fa5; /* turquoise */
+  background: #009fa5;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -104,84 +104,75 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 70px;
 }
 
-/* Row layout: letter | pill | letters */
+/* Row layout */
 .hero-row {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 }
 
-/* Side letters */
+/* MUCH bigger side letters */
 .hero-letter-side {
-  font-size: 5rem;
-  font-weight: 800;
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 900;
   color: #000;
 }
 
-/* Pill */
+/* White pill */
 .hero-pill {
-  width: 380px;
-  height: 150px;
-  background: white;
-  border-radius: 100px;
+  width: clamp(500px, 55vw, 720px);
+  height: clamp(150px, 15vw, 200px);
+  background: #ffffff;
+  border-radius: 200px;
   position: relative;
   overflow: hidden;
 }
 
-/* Inner wrapper for animation */
-.hero-pill-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-/* Black semicircle */
+/* Animated black sliding block */
 .hero-pill-black {
   background: #000;
   width: 60%;
   height: 100%;
-  border-radius: 100px;
+  border-radius: 200px;
   position: absolute;
-  left: 50%;
   top: 0;
-  transform: translateX(-50%) rotate(0deg);
+  animation: slideLeftRight 3s infinite ease-in-out;
   display: flex;
-  align-items: center;
   justify-content: center;
-  animation: pillRotate 4s infinite ease-in-out;
+  align-items: center;
 }
 
-/* Letter inside pill */
+/* Center letter (D / U) */
 .hero-pill-letter {
-  font-size: 4rem;
+  font-size: clamp(4rem, 8vw, 6rem);
+  font-weight: 800;
   color: #00a8ad;
-  font-weight: 700;
 }
 
-/* Rotate animation */
-@keyframes pillRotate {
-  0%   { transform: translateX(-50%) rotate(0deg); }
-  50%  { transform: translateX(-50%) rotate(180deg); }
-  100% { transform: translateX(-50%) rotate(360deg); }
+/* LETTER SLIDING ANIMATION (NOT ROTATION) */
+@keyframes slideLeftRight {
+  0%   { left: 100%; transform: translateX(-100%); }
+  50%  { left: 50%;  transform: translateX(-50%); }
+  100% { left: 0%;   transform: translateX(0%); }
 }
 
 /* Right-side letters */
 .hero-right {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 .hero-tag {
   background: #000;
   color: white;
-  padding: 12px 40px;
+  padding: 14px 50px;
   border-radius: 999px;
-  text-transform: uppercase;
-  font-size: 0.85rem;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
 /* ===========================
