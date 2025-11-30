@@ -88,108 +88,6 @@
   white-space: nowrap;
 }
 
-    /* ===================================
-   PILL HERO LANDING (BADER · SULIMAN)
-====================================== */
-
-.pill-hero {
-  width: 100%;
-  min-height: 100vh;
-  background: #009fa5;          /* your turquoise */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-}
-
-.pill-hero-inner {
-  width: min(1100px, 100%);
-}
-
-/* rows: letter + capsule + other letters */
-
-.pill-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 36px;
-  margin-bottom: 40px;
-}
-
-.pill-row-right {
-  display: flex;
-  gap: 18px;
-}
-
-/* big letters on the sides */
-
-.pill-side-letter {
-  font-family: "Trebuchet MS", Verdana, sans-serif;
-  font-size: clamp(3.4rem, 6vw, 4.8rem);
-  font-weight: 800;
-  color: #000;
-}
-
-/* white capsule */
-
-.pill-capsule {
-  position: relative;
-  width: min(640px, 70vw);
-  height: clamp(120px, 16vh, 150px);
-  background: #ffffff;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-/* black center circle */
-
-.pill-center-circle {
-  position: absolute;
-  left: 52%;
-  top: 0;
-  bottom: 0;
-  width: 62%;
-  background: #000000;
-  border-radius: 50% / 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pill-center-letter {
-  font-family: "Trebuchet MS", Verdana, sans-serif;
-  font-size: clamp(3.4rem, 6vw, 4.8rem);
-  font-weight: 800;
-  color: #00a9af;  /* turquoise letter in the middle */
-}
-
-/* middle tagline pill */
-
-.pill-tagline-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.pill-tagline {
-  background: #000000;
-  color: #ffffff;
-  padding: 10px 34px;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* RESPONSIVE: stack when screen is narrow */
-
-@media (max-width: 820px) {
-  .pill-row {
-    flex-d
-
 
 /* ===========================
    ABOUT – VERTICAL STATS COLUMN
@@ -2593,57 +2491,6 @@ margin-bottom: 6px;
 
   <div id="scrollProgress"></div>
 
-  <!-- PILL HERO LANDING -->
-  <section class="pill-hero">
-    <div class="pill-hero-inner">
-      
-      <!-- TOP ROW: B + CAPSULE + AER -->
-      <div class="pill-row">
-        <span class="pill-side-letter">B</span>
-
-        <div class="pill-capsule pill-capsule--top">
-          <div class="pill-center-circle">
-            <span class="pill-center-letter">D</span>
-          </div>
-        </div>
-
-        <div class="pill-row-right">
-          <span class="pill-side-letter">A</span>
-          <span class="pill-side-letter">E</span>
-          <span class="pill-side-letter">R</span>
-        </div>
-      </div>
-
-      <!-- MIDDLE TAGLINE PILL -->
-      <div class="pill-tagline-wrap">
-        <div class="pill-tagline">
-          HUMAN SECURITY · MIGRATION · DATA · WATER &amp; CLIMATE
-        </div>
-      </div>
-
-      <!-- BOTTOM ROW: S + CAPSULE + ULIMAN -->
-      <div class="pill-row">
-        <span class="pill-side-letter">S</span>
-
-        <div class="pill-capsule pill-capsule--bottom">
-          <div class="pill-center-circle">
-            <span class="pill-center-letter">U</span>
-          </div>
-        </div>
-
-        <div class="pill-row-right">
-          <span class="pill-side-letter">L</span>
-          <span class="pill-side-letter">I</span>
-          <span class="pill-side-letter">M</span>
-          <span class="pill-side-letter">A</span>
-          <span class="pill-side-letter">N</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- REST OF YOUR PAGE -->
   <div class="page">
     <header>
       <h1>Bader Suliman</h1>
@@ -2662,7 +2509,6 @@ margin-bottom: 6px;
     </header>
 
     <main>
-
 
       <!-- HOME (GALLERY ONLY) -->
       <section id="home" class="active-section">
