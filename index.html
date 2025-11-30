@@ -27,199 +27,41 @@
       padding: 40px 20px;
     }
 
- /* ====== HERO LANDING (à la Colin Moy) ====== */
+    /* Header */
+    header { text-align: center; margin-bottom: 50px; }
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-.hero-header {
-  position: relative;
-  min-height: 100vh;           /* full screen landing */
-  display: flex;
-  align-items: stretch;
-  margin-bottom: 40px;         /* space before main content starts */
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.hero-shell {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
+    nav a {
+      padding: 8px 18px;
+      border-radius: 12px;
+      border: 2px solid #d0d7de;
+      text-decoration: none;
+      color: #333;
+      transition: 0.25s;
+    }
 
-/* small top line */
-.hero-topline {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: #6b7280;
-}
-
-/* big name block */
-
-.hero-name-block {
-  margin-top: 70px;
-  margin-bottom: 40px;
-}
-
-.hero-name-line {
-  font-size: clamp(3.2rem, 8vw, 6rem);
-  text-transform: uppercase;
-  letter-spacing: 0.35em;
-  font-weight: 700;
-  line-height: 1.03;
-}
-
-/* stagger the second line a bit */
-.hero-name-line--second {
-  margin-top: 10px;
-  padding-left: 0.4em;
-}
-
-/* MOVING A’s */
-.hero-letter {
-  display: inline-block;
-  position: relative;
-}
-
-.hero-letter--a1 {
-  animation: heroFloatUp 3.8s ease-in-out infinite;
-}
-
-.hero-letter--a2 {
-  animation: heroFloatDown 4.1s ease-in-out infinite;
-}
-
-/* up and down motion */
-@keyframes heroFloatUp {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-18px); }
-}
-
-@keyframes heroFloatDown {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(16px); }
-}
-
-/* subtle glow behind the moving letters (optional but nice) */
-.hero-letter--a::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  width: 1.6em;
-  height: 1.6em;
-  border-radius: 999px;
-  background: radial-gradient(circle,
-    rgba(0,159,165,0.14) 0,
-    transparent 65%);
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-/* bottom block: tagline + nav + scroll hint */
-
-.hero-bottom {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.hero-tagline {
-  font-size: 0.95rem;
-  max-width: 32rem;
-  line-height: 1.5;
-  color: #4b5563;
-}
-
-/* NAV styling (same “chips” as before) */
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-nav a {
-  padding: 8px 18px;
-  border-radius: 12px;
-  border: 2px solid #d0d7de;
-  text-decoration: none;
-  color: #333;
-  transition: 0.25s;
-}
-
-nav a.active,
-nav a:hover {
-  border-color: #009fa5;
-  background: #e6f9f9;
-  color: #009fa5;
-}
-
-/* scroll hint at the very bottom */
-
-.hero-scroll {
-  margin-top: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #9ca3af;
-}
-
-.hero-scroll-line {
-  width: 40px;
-  height: 1px;
-  background: #d1d5db;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-scroll-line::after {
-  content: "";
-  position: absolute;
-  left: -40px;
-  top: 0;
-  width: 40px;
-  height: 100%;
-  background: #009fa5;
-  animation: heroScrollLine 1.6s linear infinite;
-}
-
-@keyframes heroScrollLine {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(80px); }
-}
-
-/* mobile tweaks */
-
-@media (max-width: 700px) {
-  .hero-shell {
-    padding-top: 32px;
-  }
-
-  .hero-name-line {
-    font-size: clamp(2.6rem, 10vw, 4rem);
-    letter-spacing: 0.22em;
-  }
-
-  .hero-name-line--second {
-    padding-left: 0;
-  }
-
-  nav ul {
-    justify-content: flex-start;
-  }
-}
-
+    nav a.active,
+    nav a:hover {
+      border-color: #009fa5;
+      background: #e6f9f9;
+      color: #009fa5;
+    }
 
     /* ====== GLOBAL SECTION HANDLING ====== */
     main section {
@@ -2649,57 +2491,24 @@ margin-bottom: 6px;
 
   <div id="scrollProgress"></div>
 
-    <div class="page">
-    <header class="hero-header">
-      <div class="hero-shell">
-
-        <!-- small line at the top -->
-        <div class="hero-topline">
-          Human security · migration · data storytelling
-        </div>
-
-        <!-- BIG NAME WITH MOVING A’s -->
-        <div class="hero-name-block">
-          <div class="hero-name-line hero-name-line--first">
-            B<span class="hero-letter hero-letter--a hero-letter--a1">A</span>DER
-          </div>
-          <div class="hero-name-line hero-name-line--second">
-            SULIM<span class="hero-letter hero-letter--a hero-letter--a2">A</span>N
-          </div>
-        </div>
-
-        <!-- bottom: tagline + nav + scroll hint -->
-        <div class="hero-bottom">
-          <p class="hero-tagline">
-            Based between Paris, Berlin &amp; Amman — using data and design
-            to make complex human security stories clear.
-          </p>
-
-          <!-- your existing NAV stays the same inside -->
-          <nav>
-            <ul>
-              <li><a href="#home" class="active">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#work">Work</a></li>
-              <li><a href="#activities">Activities</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-
-          <div class="hero-scroll">
-            <span class="hero-scroll-line"></span>
-            <span class="hero-scroll-label">Scroll to explore</span>
-          </div>
-        </div>
-
-      </div>
+  <div class="page">
+    <header>
+      <h1>Bader Suliman</h1>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#activities">Activities</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-
 
       <!-- HOME (GALLERY ONLY) -->
       <section id="home" class="active-section">
