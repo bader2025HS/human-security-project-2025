@@ -88,91 +88,93 @@
   white-space: nowrap;
 }
 
-/* ============================
-   HERO LANDING (FINAL VERSION)
-===============================*/
-.hero-landing {
+/* ======================
+   HERO - Colin Moy Layout
+=========================*/
+
+.hero {
   background: #009fa5;
   height: 100vh;
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.hero-container {
+.hero-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 70px;
+  gap: 5vh;
 }
 
-/* Row layout */
+/* ONE ROW = letter | pill | letters */
 .hero-row {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 4vw;
 }
 
-/* MUCH bigger side letters */
-.hero-letter-side {
-  font-size: clamp(5rem, 10vw, 8rem);
+/* BIG NAME LETTERS */
+.hero-letter {
+  font-size: clamp(6rem, 10vw, 12rem);
   font-weight: 900;
-  color: #000;
+  color: black;
+  line-height: 0.8;
 }
 
-/* White pill */
+/* Pill */
 .hero-pill {
-  width: clamp(500px, 55vw, 720px);
-  height: clamp(150px, 15vw, 200px);
-  background: #ffffff;
+  width: clamp(450px, 45vw, 800px);
+  height: clamp(150px, 13vw, 220px);
+  background: white;
   border-radius: 200px;
   position: relative;
   overflow: hidden;
 }
 
-/* Animated black sliding block */
-.hero-pill-black {
-  background: #000;
-  width: 60%;
-  height: 100%;
-  border-radius: 200px;
+/* Sliding black circle (no rotation) */
+.pill-black {
   position: absolute;
-  top: 0;
-  animation: slideLeftRight 3s infinite ease-in-out;
+  width: 55%;
+  height: 100%;
+  background: black;
+  border-radius: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slide 3s ease-in-out infinite;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-/* Center letter (D / U) */
-.hero-pill-letter {
+.pill-letter {
   font-size: clamp(4rem, 8vw, 6rem);
   font-weight: 800;
-  color: #00a8ad;
+  color: #009fa5;
 }
 
-/* LETTER SLIDING ANIMATION (NOT ROTATION) */
-@keyframes slideLeftRight {
-  0%   { left: 100%; transform: translateX(-100%); }
-  50%  { left: 50%;  transform: translateX(-50%); }
-  100% { left: 0%;   transform: translateX(0%); }
-}
-
-/* Right-side letters */
-.hero-right {
-  display: flex;
-  gap: 30px;
-}
-
+/* tag row */
 .hero-tag {
-  background: #000;
+  background: black;
   color: white;
-  padding: 14px 50px;
-  border-radius: 999px;
-  letter-spacing: 0.2em;
+  padding: 12px 40px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  border-radius: 99px;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  font-size: 1rem;
+}
+
+/* Right side group */
+.hero-end {
+  display: flex;
+  gap: 1vw;
+}
+
+/* animation */
+@keyframes slide {
+  0%    { left: 100%; transform: translateX(-100%); }
+  50%   { left: 50%;  transform: translateX(-50%); }
+  100%  { left: 0%;   transform: translateX(0%); }
 }
 
 /* ===========================
@@ -2576,51 +2578,47 @@ margin-bottom: 6px;
 <body>
 
   <!-- LANDING HERO -->
-<section class="hero-landing">
-  <div class="hero-container">
+<section class="hero">
+  <div class="hero-wrap">
 
-    <!-- TOP LINE -->
+    <!-- ROW 1 -->
     <div class="hero-row">
-      <span class="hero-letter-side">B</span>
+      <span class="hero-letter">B</span>
 
       <div class="hero-pill">
-        <div class="hero-pill-inner">
-          <div class="hero-pill-black">
-            <span class="hero-pill-letter">D</span>
-          </div>
+        <div class="pill-black">
+          <span class="pill-letter">D</span>
         </div>
       </div>
 
-      <div class="hero-right">
-        <span class="hero-letter-side">A</span>
-        <span class="hero-letter-side">E</span>
-        <span class="hero-letter-side">R</span>
+      <div class="hero-end">
+        <span class="hero-letter">A</span>
+        <span class="hero-letter">E</span>
+        <span class="hero-letter">R</span>
       </div>
     </div>
 
-    <!-- TAGLINE -->
+    <!-- ROW 2 (TAGLINE) -->
     <div class="hero-tag">
-      HUMAN SECURITY · MIGRATION · DATA · WATER & CLIMATE
+      HUMAN SECURITY • MIGRATION • DATA • WATER & CLIMATE
     </div>
 
-    <!-- BOTTOM LINE -->
+    <!-- ROW 3 -->
     <div class="hero-row">
-      <span class="hero-letter-side">S</span>
+      <span class="hero-letter">S</span>
 
       <div class="hero-pill">
-        <div class="hero-pill-inner">
-          <div class="hero-pill-black">
-            <span class="hero-pill-letter">U</span>
-          </div>
+        <div class="pill-black">
+          <span class="pill-letter">U</span>
         </div>
       </div>
 
-      <div class="hero-right">
-        <span class="hero-letter-side">L</span>
-        <span class="hero-letter-side">I</span>
-        <span class="hero-letter-side">M</span>
-        <span class="hero-letter-side">A</span>
-        <span class="hero-letter-side">N</span>
+      <div class="hero-end">
+        <span class="hero-letter">L</span>
+        <span class="hero-letter">I</span>
+        <span class="hero-letter">M</span>
+        <span class="hero-letter">A</span>
+        <span class="hero-letter">N</span>
       </div>
     </div>
 
