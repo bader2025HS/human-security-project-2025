@@ -88,91 +88,126 @@
   white-space: nowrap;
 }
 
-/* ======================
-   HERO PERFECT GRID ALIGNMENT
-=========================*/
+/* ==========================
+   HERO – Colin-style layout
+========================== */
 
-/* LANDING SECTION */
-#landing {
+#hero {
   background: #009fa5;
-  width: 100vw;
   height: 100vh;
-  display: flex;
+  width: 100vw;
+  display: grid;
+  place-items: center; /* centers the grid in the viewport */
+  overflow: hidden;
+}
+
+/* 3×3 GRID:
+   row1:   left letter | pill | right letters
+   row2:   tagline (spans 3 columns)
+   row3:   left letter | pill | right letters
+*/
+.hero-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  column-gap: 3vw;
+  row-gap: 4vh;
   align-items: center;
   justify-content: center;
 }
 
-.landing-container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
+/* --- grid placement --- */
 
-/* Each row of text */
-.landing-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
+.hero-letter--top    { grid-row: 1; grid-column: 1; }
+.hero-pill--top      { grid-row: 1; grid-column: 2; }
+.hero-right--top     { grid-row: 1; grid-column: 3; }
 
-/* Big letters */
-.landing-letter {
-  font-size: 160px;
-  font-weight: 700;
+.hero-tagline        { grid-row: 2; grid-column: 1 / 4; justify-self: center; }
+
+.hero-letter--bottom { grid-row: 3; grid-column: 1; }
+.hero-pill--bottom   { grid-row: 3; grid-column: 2; }
+.hero-right--bottom  { grid-row: 3; grid-column: 3; }
+
+/* --- big letters --- */
+
+.hero-letter {
+  font-size: clamp(5rem, 9vw, 8rem);
+  font-weight: 800;
   color: #000;
-  letter-spacing: 8px;
+  line-height: 0.9;
 }
 
-/* Capsule */
-.capsule {
-  width: 520px;
-  height: 220px;
-  background: #fff;
-  border-radius: 150px;
+/* right-side groups (AER / LIMAN) */
+.hero-right {
+  display: flex;
+  gap: clamp(0.7rem, 1.6vw, 2.5rem);
+}
+
+/* --- white pill --- */
+
+.hero-pill {
+  width: clamp(420px, 45vw, 760px);
+  height: clamp(140px, 13vw, 210px);
+  background: #ffffff;
+  border-radius: 999px;
   overflow: hidden;
   position: relative;
+}
+
+/* black sliding piece */
+.hero-pill-track {
+  position: absolute;
+  inset: 0;
+  width: 60%;              /* width of black block */
+  background: #000;
+  border-radius: 999px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  animation: heroSlideLR 3.6s ease-in-out infinite;
 }
 
-/* Moving black part */
-.capsule-inner {
-  width: 100%;
-  height: 100%;
+/* letter inside pill */
+.hero-pill-letter {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  color: #009fa5;
+}
+
+/* left <-> right animation
+   stays relatively close to the other letters */
+@keyframes heroSlideLR {
+  0%   { transform: translateX(-10%); }
+  50%  { transform: translateX(50%); }
+  100% { transform: translateX(-10%); }
+}
+
+/* --- tagline --- */
+
+.hero-tagline {
   background: #000;
-  border-radius: 150px;
-  position: absolute;
-  left: -40%;
-  animation: slide 4s ease-in-out infinite;
-}
-
-/* Animated letters inside capsule */
-.capsule-letter {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #00a8ad;
-  font-size: 140px;
-  font-weight: 700;
-}
-
-/* Sliding animation (left → right → left) */
-@keyframes slide {
-  0%   { left: -40%; }
-  50%  { left: 40%; }
-  100% { left: -40%; }
-}
-
-/* Tagline */
-.tagline {
-  background: #000;
-  color: white;
-  font-size: 26px;
+  color: #fff;
+  padding: clamp(10px, 1.2vw, 16px) clamp(40px, 6vw, 80px);
+  border-radius: 999px;
+  font-size: clamp(0.9rem, 1.6vw, 1.3rem);
   letter-spacing: 0.25em;
-  padding: 18px 80px;
-  border-radius: 50px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* optional: small tweak on narrower screens */
+@media (max-width: 900px) {
+  .hero-letter {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+  }
+  .hero-pill {
+    width: clamp(320px, 60vw, 520px);
+    height: clamp(110px, 16vw, 160px);
+  }
+  .hero-tagline {
+    white-space: normal;
+  }
 }
 
 
@@ -2577,48 +2612,49 @@ margin-bottom: 6px;
 <body>
 
   <!-- LANDING HERO -->
-<section id="landing">
-  <div class="landing-container">
+<section id="hero">
+  <div class="hero-grid">
 
     <!-- ROW 1 -->
-    <div class="landing-row">
-      <span class="landing-letter">B</span>
+    <span class="hero-letter hero-letter--top">B</span>
 
-      <div class="capsule">
-        <div class="capsule-inner">
-          <span class="capsule-letter">D</span>
-        </div>
+    <div class="hero-pill hero-pill--top">
+      <div class="hero-pill-track">
+        <span class="hero-pill-letter">A</span>
       </div>
-
-      <span class="landing-letter">A</span>
-      <span class="landing-letter">E</span>
-      <span class="landing-letter">R</span>
     </div>
 
-    <!-- TAGLINE -->
-    <div class="tagline">
-      HUMAN SECURITY • MIGRATION • DATA • WATER & CLIMATE
+    <div class="hero-right hero-right--top">
+      <span class="hero-letter">D</span>
+      <span class="hero-letter">E</span>
+      <span class="hero-letter">R</span>
     </div>
 
-    <!-- ROW 2 -->
-    <div class="landing-row">
-      <span class="landing-letter">S</span>
+    <!-- TAGLINE ROW -->
+    <div class="hero-tagline">
+      HUMAN SECURITY • MIGRATION • DATA • WATER &amp; CLIMATE
+    </div>
 
-      <div class="capsule">
-        <div class="capsule-inner">
-          <span class="capsule-letter">U</span>
-        </div>
+    <!-- ROW 3 -->
+    <span class="hero-letter hero-letter--bottom">S</span>
+
+    <div class="hero-pill hero-pill--bottom">
+      <div class="hero-pill-track">
+        <span class="hero-pill-letter">U</span>
       </div>
+    </div>
 
-      <span class="landing-letter">L</span>
-      <span class="landing-letter">I</span>
-      <span class="landing-letter">M</span>
-      <span class="landing-letter">A</span>
-      <span class="landing-letter">N</span>
+    <div class="hero-right hero-right--bottom">
+      <span class="hero-letter">L</span>
+      <span class="hero-letter">I</span>
+      <span class="hero-letter">M</span>
+      <span class="hero-letter">A</span>
+      <span class="hero-letter">N</span>
     </div>
 
   </div>
 </section>
+
 
 
   <div id="scrollProgress"></div>
